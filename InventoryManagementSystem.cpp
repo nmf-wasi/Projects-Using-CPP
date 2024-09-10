@@ -1,6 +1,5 @@
 #include <bits/stdc++.h>
 using namespace std;
-vector<InventoryItem> InventoryItems;
 class InventoryItem
 {
     public:
@@ -18,6 +17,7 @@ class InventoryItem
             this->price = price;
         }
 };
+vector<InventoryItem> InventoryItems;
 void addItem()
 {
     int serial;
@@ -48,18 +48,63 @@ void viewItem()
 }
 void SearchItemUsingProductID()
 {
-    string name;
-    cout<<
+    double iD;
+    cout << "Enter ID to search: ";
+    cin >> iD;
+    for (int i = 0; i < InventoryItems.size(); i++)
+    {
+        if (InventoryItems[i].productID == iD)
+        {
+            cout << "Serial: " << InventoryItems[i].serial << " "
+                 << "Name: " << InventoryItems[i].Name << " "
+                 << "Product ID: " << InventoryItems[i].productID << " "
+                 << "Quantity: " << InventoryItems[i].quantity << " "
+                 << "Price: " << InventoryItems[i].price << endl;
+            return;
+        }
+    }
+    cout << "Product Not Found!" << endl;
 }
 void SearchItemUsingProductName()
 {
-    string name;
-    cout<<
+    string Name;
+    cout << "Enter name to search: ";
+    getline(cin, Name);
+    for (int i = 0; i < InventoryItems.size(); i++)
+    {
+        if (InventoryItems[i].Name == Name)
+        {
+            cout << "Serial: " << InventoryItems[i].serial << " "
+                 << "Name: " << InventoryItems[i].Name << " "
+                 << "Product ID: " << InventoryItems[i].productID << " "
+                 << "Quantity: " << InventoryItems[i].quantity << " "
+                 << "Price: " << InventoryItems[i].price << endl;
+            return;
+        }
+    }
+    cout << "Product Not Found!" << endl;
 }
 void deleteItem()
 {
-    string name;
-    cout<<
+    string Name;
+    cout << "Enter name to delete: ";
+    cin.ignore();
+    getline(cin, Name);
+    auto it = find_if(InventoryItems.begin(), InventoryItems.end(), [&Name](const InventoryItem &student)
+                        { 
+                          return student.Name == Name; 
+                        }
+                    );
+
+    if (it != InventoryItems.end())
+    {
+        InventoryItems.erase(it);
+        cout << "Product Deleted!" << endl;
+    }
+    else
+    {
+        cout << "Product Not Found!" << endl;
+    }
 }
 
 int main()
@@ -82,12 +127,15 @@ int main()
                 viewItem();
                 break;
             case 3:
-                searchItem();
+                SearchItemUsingProductID();
                 break;
             case 4:
-                deleteItem();
+                SearchItemUsingProductName();
                 break;
             case 5:
+                deleteItem();
+                break;
+            case 6:
                 cout << "Exiting...\n";
                 return 0;
             default:
