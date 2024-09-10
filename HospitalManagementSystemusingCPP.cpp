@@ -19,6 +19,7 @@ void admitPatient()
     string name;
     int age;
     string disease;
+    cout << "Enter Patient Name, age & disease\n";
     cin >> name >> age >> disease;
     patients.push_back(Patient(name, age, disease));
     cout << "Patient admitted successfully\n";
