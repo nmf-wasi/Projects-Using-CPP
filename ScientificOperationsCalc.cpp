@@ -9,7 +9,12 @@ void scientificCalculator()
     cout << "Enter a number: ";
     cin >> num;
 
-    cout << "Select operation: \n1. Square Root\n2. Sin\n3. Cos\n4. Tan\n5. Log\n";
+    cout << "Select operation: " << endl
+         << "1. Square Root" << endl
+         << "2. Sin" << endl
+         << "3. Cos" << endl
+         << "4. Tan" << endl
+         << "5. Log" << endl;
     cin >> select;
 
     switch (select) 
@@ -62,19 +67,14 @@ void basicMaths()
 int main() 
 {
     int input;
-    cout<<"Select if you want basic mathematical operations or scientific operations \n 1.Basic Mathematical Operations \n 2.Scientific Operations";
-    cin>>input;
+    cout << "" << endl
+         << "1.Basic Mathematical Operations" << endl << "2.Scientific Operations "<<endl;
+    cin >>input;
     if(input==1)
-    {
         scientificCalculator();
-    }
     else if(input==2)
-    {
         basicMaths();
-    }
     else
-    {
         cout<<"Invalid Input"<<endl;
-    }
     return 0;
 }

@@ -25,10 +25,10 @@ void addItem()
     double productID;
     int quantity;
     int price;
-    cout << "Enter Product serial, productID, quantity & price\n";
+    cout << "Enter Product serial, productID, quantity & price"<<endl<<"";
     cin>>serial>>Name>>productID>>quantity>>price;
     InventoryItems.push_back(InventoryItem(serial, Name, productID, quantity, price));
-    cout << "Product added successfully\n";
+    cout << "Product added successfully"<<endl<<"";
 }
 void viewItem()
 {
@@ -111,10 +111,15 @@ int main()
 {
     int input;
     string Name, Number, email;
-
     while (true) 
     {
-        cout << "\n1. Add item\n2. View items\n3. Search item using Product ID\n4. Search item using Product Name\n5. Delete item\n6. Exit\n";
+        cout << "1. Add item" << endl
+             << "2. View items" << endl
+             << "3. Search item using Product ID" << endl
+             << "4. Search item using Product Name" << endl
+             << "5. Delete item" << endl
+             << "6. Exit" << endl
+             << "";
         cout << "Enter your input: ";
         cin >> input;
 
@@ -136,10 +141,10 @@ int main()
                 deleteItem();
                 break;
             case 6:
-                cout << "Exiting...\n";
+                cout << "Exiting..."<<endl<<"";
                 return 0;
             default:
-                cout << "Invalid input, please try again.\n";
+                cout << "Invalid input, please try again."<<endl<<"";
         }
     }
     return 0;
